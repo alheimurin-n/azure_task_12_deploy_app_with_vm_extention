@@ -1,0 +1,20 @@
+name: python-deployment
+run-name: ${{github.actor}} - ${{github.ref_name}}
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  python-ci:
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: "3.10"
+
+    steps:
+      - name: Chekout code
+        uses: actions/checkout@v4
+
+      
